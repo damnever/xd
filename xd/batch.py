@@ -24,21 +24,22 @@ class Batch(object):
     def run(self):
         n, rest = divmod(self._count, self._step)
         for i in range(self._step):
-            if i != 0:
+            if i > 0:
                 time.sleep(self._interval)
-            self.batch(n)
+            self.batch(n, i*n+1)
             self.wait(n)
 
         if rest > 0:
-            self.batch(rest)
+            time.sleep(self._interval)
+            self.batch(rest, n*self._step+1)
             self.wait(rest)
 
-    def batch(self, n):
+    def batch(self, n, idx):
         self._ps = []
 
         for i in range(n):
             try:
-                p = Proc(self._cmd, color_idx=i+1)
+                p = Proc(self._cmd, color_idx=idx+i)
                 self._ps.append(p)
             except Exception as e:
                 self.exit(e)

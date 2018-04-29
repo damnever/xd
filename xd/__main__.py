@@ -30,7 +30,8 @@ def version():
 @click.option('-c', '--count', type=int, default=2, show_default=True,
               help='The max tasks in parallel.')
 @click.option('-s', '--step', type=int, default=1, show_default=True,
-              help='Execute by step, each time (count/step) task in parallel.')
+              help=('Execute by step(maybe step+1), each time (count/step)'
+                    ' tasks in parallel.'))
 @click.option('-i', '--interval', type=float, default=1, show_default=True,
               help=('Sleep interval seconds between each step,'
                     ' ignored if step is 1.'))
