@@ -23,16 +23,20 @@ class Batch(object):
 
     def run(self):
         n, rest = divmod(self._count, self._step)
+        idx = 1
+
+        if rest > 0:
+            self.batch(rest, idx)
+            self.wait(rest)
+            time.sleep(self._interval)
+            idx += rest
+
         for i in range(self._step):
             if i > 0:
                 time.sleep(self._interval)
-            self.batch(n, i*n+1)
+            self.batch(n, idx)
             self.wait(n)
-
-        if rest > 0:
-            time.sleep(self._interval)
-            self.batch(rest, n*self._step+1)
-            self.wait(rest)
+            idx += n
 
     def batch(self, n, idx):
         self._ps = []
