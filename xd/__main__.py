@@ -8,7 +8,7 @@ import click
 from .batch import Batch
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.3'
 version_info = [int(num) for num in __version__.split('.')]
 
 

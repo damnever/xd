@@ -44,10 +44,9 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    keywords='requirements tool',
+    keywords='command line tools',
     packages=find_packages(),
     install_requires=REQUIRES,
-    include_package_data=True,
     entry_points={
         'console_scripts': [
             'xd=xd.__main__:xd',
