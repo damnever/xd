@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 
 VERSION = ''
-with open('cmds/__main__.py', 'r') as f:
+with open('xd/__main__.py', 'r') as f:
     VERSION = re.search(
         r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
         f.read(), re.M
@@ -50,7 +50,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'xd=cmds.__main__:xd',
+            'xd=xd.__main__:xd',
         ]
     },
 )
