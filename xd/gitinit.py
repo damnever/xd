@@ -95,8 +95,8 @@ def step_gitignore(types, fpath, overwrite):
     gitignore_tpls = []
 
     with requests.Session() as session:
+        session.headers.update(_HEADERS)
         if overwrite:
-            session.headers.update(_HEADERS)
             resp = session.get(
                 _GLOBAL_GITIGNORE_URL.format(platform), timeout=5)
             if resp.status_code != 200:
