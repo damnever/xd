@@ -9,6 +9,8 @@ name = "pypi"
 
 colorama = "*"
 click = "*"
+requests = "*"
+six = "*"
 
 
 [dev-packages]

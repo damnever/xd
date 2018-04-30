@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 
 VERSION = ''
-with open('xd/__main__.py', 'r') as f:
+with open('xd/__version__.py', 'r') as f:
     VERSION = re.search(
         r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
         f.read(), re.M

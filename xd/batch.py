@@ -2,8 +2,44 @@
 
 import sys
 import time
+import shlex
+
+import click
 
 from .proc import Proc, register_signal_handler, signum2str
+from .helpers import abort
+
+
+@click.command()
+@click.argument('cmd', nargs=-1)
+@click.option('-c', '--count', type=int, default=2, show_default=True,
+              help='The max tasks in parallel.')
+@click.option('-s', '--step', type=int, default=1, show_default=True,
+              help=('Execute by step(maybe step+1), each time (count/step)'
+                    ' tasks in parallel.'))
+@click.option('-i', '--interval', type=float, default=1, show_default=True,
+              help=('Sleep interval seconds between each step,'
+                    ' ignored if step is 1.'))
+@click.option('-e', '--err-exit', is_flag=True, default=True,
+              show_default=True,
+              help='Exit all if one of the tasks exit abnormally.')
+def batch(cmd, count, step, interval, err_exit):
+    """
+    execute a program multiple times in parallel
+
+        xd batch echo hello world
+
+        xd batch -c 5 "sh -c 'echo hello; sleep 1; echo world'"
+
+        xd batch -c 7 -- sh -c 'echo hello; sleep 1; echo world'
+    """
+    if count < 1:
+        abort('count must greater than 0')
+    if len(cmd) == 0:
+        abort('[CMD]... is required, see usage for details')
+    if len(cmd) == 1:
+        cmd = shlex.split(cmd[0])
+    Batch(list(cmd), count, step, interval, err_exit)()
 
 
 class Batch(object):
