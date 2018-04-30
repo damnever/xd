@@ -10,7 +10,7 @@ from .proc import Proc, register_signal_handler, signum2str
 from .helpers import abort
 
 
-@click.command()
+@click.command(name='batch')
 @click.argument('cmd', nargs=-1)
 @click.option('-c', '--count', type=int, default=2, show_default=True,
               help='The max tasks in parallel.')
@@ -23,7 +23,7 @@ from .helpers import abort
 @click.option('-e', '--err-exit', is_flag=True, default=True,
               show_default=True,
               help='Exit all if one of the tasks exit abnormally.')
-def batch(cmd, count, step, interval, err_exit):
+def command(cmd, count, step, interval, err_exit):
     """
     execute a program multiple times in parallel
 

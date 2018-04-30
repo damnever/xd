@@ -29,7 +29,7 @@ _PLATFORM_MAP = {
 }
 
 
-@click.command()
+@click.command(name='gitinit')
 @click.option('-p', '--path', default='.', show_default=True,
               help=('Project path, if `only` is presented,'
                     ' it is the path for license or gitignore file'))
@@ -43,7 +43,7 @@ _PLATFORM_MAP = {
               help='Use it to only modify license or gitignore.')
 @click.option('-a', '--append', is_flag=True, default=False, show_default=True,
               help='Co-operate with `gitignore`, otherwise it is ignored')
-def gitinit(path, license, gitignores, only, append):
+def command(path, license, gitignores, only, append):
     """
     init a git project, or creates a LICENSE/.gitignore file
 

@@ -3,7 +3,7 @@
 import click
 
 
-@click.command()
-def watch():
+@click.command(name='watch')
+def command():
     """execute a program periodically"""
     click.echo('not available, google watch command instead..')
