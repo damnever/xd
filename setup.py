@@ -20,7 +20,8 @@ if not VERSION:
 with codecs.open('README.rst', encoding='utf-8') as f:
     README = f.read()
 
-REQUIRES = ['colorama', 'click']
+# Integrate with Pipfile?
+REQUIRES = ['colorama', 'click', 'requests', 'six']
 
 
 setup(
