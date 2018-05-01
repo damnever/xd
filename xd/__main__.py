@@ -16,7 +16,7 @@ def xd():
 
 current_path = pathlib.dirname(pathlib.abspath(__file__))
 for _, name, _ in pkgutil.iter_modules([current_path]):
-    if name in ('__init__', '__main__'):
+    if not (name.startswith('cmd_') or name in ('__version__',)):
         continue
 
     module = importlib.import_module('.'+name, 'xd')

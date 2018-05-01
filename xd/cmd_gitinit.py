@@ -56,7 +56,7 @@ def command(path, license, gitignores, only, append):
     nothing = not license and not gitignores
     if only and (nothing or all((license, gitignores))):
         abort('--only should work with --license or --gitignores')
-    if not only and nothing:
+    if not only and (nothing or (not license or not gitignores)):
         abort('--license and --gitignores required')
     if not only:
         ensure_dir(path)
@@ -140,7 +140,7 @@ def _complete_path(fpath, filename):
 def _write(contents, fpath, overwrite):
     mode = 'wb' if overwrite else 'ab'
 
-    with err_abort('write {} failed'.format(fpath)):
+    with err_abort('write {} failed', fpath):
         with open(fpath, mode) as f:
             for content in contents:
                 if isinstance(content, text_type):
