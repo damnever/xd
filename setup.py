@@ -21,7 +21,15 @@ with codecs.open('README.rst', encoding='utf-8') as f:
     README = f.read()
 
 # Integrate with Pipfile?
-REQUIRES = ['colorama', 'click', 'requests', 'six']
+REQUIRES = [
+    'colorama',
+    'click',
+    'requests',
+    'six',
+    'pyyaml',
+    'pytoml',
+    'configparser',
+]
 
 
 setup(
