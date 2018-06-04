@@ -3,7 +3,7 @@
 import click
 
 
-version = __version__ = '0.1.4'
+version = __version__ = '0.1.5'
 version_info = [int(num) for num in __version__.split('.')]
 
 
