@@ -25,7 +25,7 @@ REQUIRES = [
     'colorama',
     'click',
     'requests',
-    'six',
+    'six>=1.11.0',
     'pyyaml',
     'pytoml',
     'configparser',
