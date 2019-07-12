@@ -112,7 +112,7 @@ class YAML(object):
         lambda dumper, d: dumper.represent_dict(d.items()),
     )
 
-    load = staticmethod(yaml.load)
+    load = staticmethod(yaml.full_load)
     # XXX: default_flow_style??
     dumps = staticmethod(partial(yaml.dump, indent=2,
                                  default_flow_style=False))
