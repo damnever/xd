@@ -38,7 +38,7 @@ StringIO = io.BytesIO if PY2 else io.StringIO
 @click.argument('file', nargs=-1, type=click.File(mode='rb'))
 def command(file_type, query, convert_into, file, no_newline):
     """
-    manipulate config files: json, yaml, ini and toml
+    Manipulate config files: json, yaml, ini and toml.
 
         cat Pipfile | xd config -t toml -q "{X}['packages']" # query fields
 

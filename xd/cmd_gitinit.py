@@ -45,7 +45,7 @@ _PLATFORM_MAP = {
               help='Co-operate with `gitignore`, otherwise it is ignored')
 def command(path, license, gitignores, only, append):
     """
-    init a git project, or creates a LICENSE/.gitignore file
+    Init a git project, or creates a LICENSE/.gitignore file.
 
         xd gitinit -p pro -l mit -i Python  # init a porject
 

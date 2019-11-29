@@ -25,7 +25,7 @@ from .helpers import abort
               help='Exit all if one of the tasks exit abnormally.')
 def command(cmd, count, step, interval, err_exit):
     """
-    execute a program multiple times in parallel
+    Execute a program multiple times in parallel.
 
         xd batch echo hello world
 

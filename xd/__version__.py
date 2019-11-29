@@ -3,11 +3,11 @@
 import click
 
 
-version = __version__ = '0.1.6'
+version = __version__ = '0.1.7'
 version_info = [int(num) for num in __version__.split('.')]
 
 
 @click.command(name='version')
 def command():
-    "show version"
+    "Show version."
     click.echo('xd v' + version)

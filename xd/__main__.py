@@ -9,7 +9,7 @@ import click
 
 @click.group()
 def xd():
-    """a list of handy commands which makes life easier
+    """A list of handy commands which makes life easier.
     """
     pass
 
